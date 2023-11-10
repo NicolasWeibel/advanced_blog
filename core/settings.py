@@ -199,15 +199,15 @@ DJOSER = {
         "http://localhost:8000/google",
         "http://localhost:8000/facebook",
     ],
-    # "SERIALIZERS": {
-    #     "user_create": "apps.user.serializers.UserSerializer",
-    #     "user": "apps.user.serializers.UserSerializer",
-    #     "current_user": "apps.user.serializers.UserSerializer",
-    #     "user_delete": "djoser.serializers.UserDeleteSerializer",
-    # },
+    "SERIALIZERS": {
+        "user_create": "apps.user.serializers.UserSerializer",
+        "user": "apps.user.serializers.UserSerializer",
+        "current_user": "apps.user.serializers.UserSerializer",
+        "user_delete": "djoser.serializers.UserDeleteSerializer",
+    },
 }
 
-# AUTH_USER_MODEL = "user.UserAccount"
+AUTH_USER_MODEL = "user.UserAccount"
 
 CORS_ORIGIN_WHITELIST = env.list("CORS_ORIGIN_WHITELIST_DEV")
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS_DEV")

@@ -168,9 +168,10 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "build/static")]
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
-    ],
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
 }
 
 # Simple JWT
@@ -213,6 +214,14 @@ AUTH_USER_MODEL = "user.UserAccount"
 
 CORS_ORIGIN_WHITELIST = env.list("CORS_ORIGIN_WHITELIST_DEV")
 CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS_DEV")
+# CORS_ORIGIN_WHITELIST = [
+#     "http://localhost:3001",
+#     "http://localhost:3000",
+# ]
+# CSRF_TRUSTED_ORIGINS = [
+#     "http://localhost:3001",
+#     "http://localhost:3000",
+# ]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 

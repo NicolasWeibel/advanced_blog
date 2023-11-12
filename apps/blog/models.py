@@ -4,6 +4,9 @@ from django.db.models.query import QuerySet
 from django.utils import timezone
 
 from apps.category.models import Category
+from django.conf import settings
+
+User = settings.AUTH_USER_MODEL
 
 
 def blog_thumbnail_directory(instance, filename):
@@ -27,6 +30,8 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True)
     thumbnail = models.ImageField(upload_to=blog_thumbnail_directory, max_length=500)
+
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     description = models.TextField(max_length=255)
     content = RichTextField()

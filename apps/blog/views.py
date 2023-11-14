@@ -7,7 +7,7 @@ from django.db.models.query_utils import Q
 from apps.category.models import Category
 
 from .models import Post, ViewCount
-from .serializers import PostListSerializer, PostSerializer
+from .serializers import AuthorPostListSerializer, PostListSerializer, PostSerializer
 from .pagination import SmallSetPagination, MediumSetPagination, LargeSetPagination
 
 
@@ -115,13 +115,13 @@ class AuthorBlogListView(APIView):
     def get(self, request, format=None):
         user = self.request.user
 
-        if Post.post_objects.filter(author=user).exists():
-            posts = Post.post_objects.filter(author=user)
+        if Post.objects.filter(author=user).exists():
+            posts = Post.objects.filter(author=user)
 
             paginator = SmallSetPagination()
             results = paginator.paginate_queryset(posts, request)
 
-            serializer = PostListSerializer(results, many=True)
+            serializer = AuthorPostListSerializer(results, many=True)
 
             return paginator.get_paginated_response({"posts": serializer.data})
         else:

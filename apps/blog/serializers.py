@@ -39,3 +39,42 @@ class PostListSerializer(serializers.ModelSerializer):
             "views",
             "category",
         ]
+
+
+class AuthorPostSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
+
+    class Meta:
+        model = Post
+        fields = [
+            "id",
+            "title",
+            "slug",
+            "thumbnail",
+            "description",
+            "content",
+            "time_read",
+            "published",
+            "views",
+            "status",
+            "category",
+        ]
+
+
+class AuthorPostListSerializer(serializers.ModelSerializer):
+    category = CategorySerializer()
+
+    class Meta:
+        model = Post
+        fields = [
+            "id",
+            "title",
+            "slug",
+            "thumbnail",
+            "description",
+            "time_read",
+            "published",
+            "views",
+            "status",
+            "category",
+        ]

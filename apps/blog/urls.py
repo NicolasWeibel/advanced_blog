@@ -8,4 +8,5 @@ urlpatterns = [
     path("detail/<slug>", PostDetailView.as_view()),
     path("search", SearchBlogView.as_view()),
     path("author_list", AuthorBlogListView.as_view()),
+    path("author_detail/<slug>", PostDetailView.as_view()),
 ]

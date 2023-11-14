@@ -7,7 +7,12 @@ from django.db.models.query_utils import Q
 from apps.category.models import Category
 
 from .models import Post, ViewCount
-from .serializers import AuthorPostListSerializer, PostListSerializer, PostSerializer
+from .serializers import (
+    AuthorPostListSerializer,
+    AuthorPostSerializer,
+    PostListSerializer,
+    PostSerializer,
+)
 from .pagination import SmallSetPagination, MediumSetPagination, LargeSetPagination
 
 
@@ -127,4 +132,21 @@ class AuthorBlogListView(APIView):
         else:
             return Response(
                 {"error": "No posts found"}, status=status.HTTP_404_NOT_FOUND
+            )
+
+
+class AuthorPostDetailView(APIView):
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def get(self, request, slug, format=None):
+        user = self.request.user
+
+        if Post.objects.filter(author=user, slug=slug).exists():
+            post = Post.objects.get(author=user, slug=slug)
+            serializer = AuthorPostSerializer(post)
+
+            return Response({"post": serializer.data}, status=status.HTTP_200_OK)
+        else:
+            return Response(
+                {"error": "Post not found"}, status=status.HTTP_404_NOT_FOUND
             )

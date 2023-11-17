@@ -1,8 +1,10 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework import status
 from rest_framework import permissions
 from django.db.models.query_utils import Q
+from slugify import slugify
 
 from apps.category.models import Category
 
@@ -14,6 +16,7 @@ from .serializers import (
     PostSerializer,
 )
 from .pagination import SmallSetPagination, MediumSetPagination, LargeSetPagination
+from .permissions import IsPostAuthorOrReadOnly
 
 
 class BlogListView(APIView):
@@ -150,3 +153,32 @@ class AuthorPostDetailView(APIView):
             return Response(
                 {"error": "Post not found"}, status=status.HTTP_404_NOT_FOUND
             )
+
+
+class EditBlogPostView(APIView):
+    permission_classes = (IsPostAuthorOrReadOnly,)
+    parser_classes = [MultiPartParser, FormParser]
+
+    def put(self, request, format=None):
+        user = self.request.user
+
+        data = self.request.data
+        slug = data["slug"]
+
+        post = Post.objects.get(slug=slug)
+
+        print(data)
+        print("-----------")
+        print(post)
+
+        if data["title"]:
+            post.title = data["title"]
+            post.save()
+        if data["new_slug"]:
+            post.slug = slugify(data["new_slug"])
+            post.save()
+        if data["description"]:
+            post.description = data["description"]
+            post.save()
+
+        return Response({"success": "Post edited"})

@@ -16,7 +16,7 @@ from .serializers import (
     PostSerializer,
 )
 from .pagination import SmallSetPagination, MediumSetPagination, LargeSetPagination
-from .permissions import IsPostAuthorOrReadOnly
+from .permissions import AuthorPermission, IsPostAuthorOrReadOnly
 
 
 class BlogListView(APIView):
@@ -165,20 +165,92 @@ class EditBlogPostView(APIView):
         data = self.request.data
         slug = data["slug"]
 
+        print(data)
+
         post = Post.objects.get(slug=slug)
 
-        print(data)
-        print("-----------")
-        print(post)
-
         if data["title"]:
-            post.title = data["title"]
-            post.save()
+            if not (data["title"] == "undefined"):
+                post.title = data["title"]
+                post.save()
         if data["new_slug"]:
-            post.slug = slugify(data["new_slug"])
-            post.save()
+            if not (data["new_slug"] == "undefined"):
+                post.slug = slugify(data["new_slug"])
+                post.save()
         if data["description"]:
-            post.description = data["description"]
-            post.save()
+            if not (data["description"] == "undefined"):
+                post.description = data["description"]
+                post.save()
+        if data["time_read"]:
+            if not (data["time_read"] == "undefined"):
+                post.time_read = data["time_read"]
+                post.save()
+        if data["content"]:
+            if not (data["content"] == "undefined"):
+                post.content = data["content"]
+                post.save()
+
+        if data["category"]:
+            if not (data["category"] == "undefined"):
+                category_id = int(data["category"])
+                category = Category.objects.get(id=category_id)
+                post.category = category
+                post.save()
+
+        if data["thumbnail"]:
+            if not (data["thumbnail"] == "undefined"):
+                post.thumbnail = data["thumbnail"]
+                post.save()
+
+        return Response({"success": "Post edited"})
+
+
+class DraftBlogPostView(APIView):
+    permission_classes = (IsPostAuthorOrReadOnly,)
+
+    def put(self, request, format=None):
+        data = self.request.data
+        slug = data["slug"]
+
+        post = Post.objects.get(slug=slug)
+
+        post.status = "draft"
+        post.save()
+
+        return Response({"success": "Post edited"})
+
+
+class PublishBlogPostView(APIView):
+    permission_classes = (IsPostAuthorOrReadOnly,)
+
+    def put(self, request, format=None):
+        data = self.request.data
+        slug = data["slug"]
+
+        post = Post.objects.get(slug=slug)
+
+        post.status = "published"
+        post.save()
+
+        return Response({"success": "Post edited"})
+
+
+class DeleteBlogPostView(APIView):
+    permission_classes = (IsPostAuthorOrReadOnly,)
+
+    def delete(self, request, slug, format=None):
+        post = Post.objects.get(slug=slug)
+
+        post.delete()
+
+        return Response({"success": "Post edited"})
+
+
+class CreateBlogPostView(APIView):
+    permission_classes = (AuthorPermission,)
+
+    def post(self, request, format=None):
+        user = self.request.user
+        Post.objects.create(author=user)
 
         return Response({"success": "Post edited"})

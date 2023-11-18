@@ -29,7 +29,7 @@ class Post(models.Model):
     )
 
     title = models.CharField(max_length=255, default="New Post")
-    slug = models.SlugField(max_length=255, unique=True, default=f"post-{uuid.uuid4()}")
+    slug = models.SlugField(max_length=255, unique=True, default=uuid.uuid4)
     thumbnail = models.ImageField(
         upload_to=blog_thumbnail_directory, max_length=500, blank=True, null=True
     )

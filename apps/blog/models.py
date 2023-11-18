@@ -2,6 +2,7 @@ from ckeditor.fields import RichTextField
 from django.db import models
 from django.db.models.query import QuerySet
 from django.utils import timezone
+import uuid
 
 from apps.category.models import Category
 from django.conf import settings
@@ -27,23 +28,27 @@ class Post(models.Model):
         ("published", "Published"),
     )
 
-    title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255, unique=True)
-    thumbnail = models.ImageField(upload_to=blog_thumbnail_directory, max_length=500)
+    title = models.CharField(max_length=255, blank=True, null=True)
+    slug = models.SlugField(max_length=255, unique=True, default=uuid.uuid4)
+    thumbnail = models.ImageField(
+        upload_to=blog_thumbnail_directory, max_length=500, blank=True, null=True
+    )
 
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    description = models.TextField(max_length=255)
-    content = RichTextField()
+    description = models.TextField(max_length=255, blank=True, null=True)
+    content = RichTextField(blank=True, null=True)
 
-    time_read = models.IntegerField()
+    time_read = models.IntegerField(blank=True, null=True)
 
     published = models.DateTimeField(default=timezone.now)
-    views = models.IntegerField(default=0, blank=True)
+    views = models.IntegerField(default=0)
 
     status = models.CharField(max_length=10, choices=options, default="draft")
 
-    category = models.ForeignKey(Category, on_delete=models.PROTECT)
+    category = models.ForeignKey(
+        Category, on_delete=models.PROTECT, blank=True, null=True
+    )
 
     objects = models.Manager()  # default manager
     post_objects = PostObjects()  # custom manager

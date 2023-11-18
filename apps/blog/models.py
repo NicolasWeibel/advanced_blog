@@ -28,16 +28,18 @@ class Post(models.Model):
         ("published", "Published"),
     )
 
-    title = models.CharField(max_length=255, blank=True, null=True)
-    slug = models.SlugField(max_length=255, unique=True, default=uuid.uuid4)
+    title = models.CharField(max_length=255, default="New Post")
+    slug = models.SlugField(max_length=255, unique=True, default=f"post-{uuid.uuid4}")
     thumbnail = models.ImageField(
         upload_to=blog_thumbnail_directory, max_length=500, blank=True, null=True
     )
 
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    description = models.TextField(max_length=255, blank=True, null=True)
-    content = RichTextField(blank=True, null=True)
+    description = models.TextField(
+        max_length=255, default="Enter a brief description here..."
+    )
+    content = RichTextField(default="Start writing your content here...")
 
     time_read = models.IntegerField(blank=True, null=True)
 

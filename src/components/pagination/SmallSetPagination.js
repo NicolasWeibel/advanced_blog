@@ -27,7 +27,7 @@ function SmallSetPagination({ list_page, list, count }) {
 
   const next_number = () => {
     window.scrollTo(0, 0);
-    if (currentPage !== Math.ceil(list.length / 3)) {
+    if (currentPage !== Math.ceil(list.length / 6)) {
       setCurrentPage(currentPage + 1);
       setActive(currentPage + 1);
       list_page(currentPage + 1);

@@ -54,7 +54,7 @@ function Contact() {
 
       const fetchData = async () => {
         const res = await axios.post(
-          `${process.env.REACT_APP_API_URL}/api/contacts/`,
+          `${process.env.REACT_APP_API_URL}/api/contact/`,
           formData,
           config
         );

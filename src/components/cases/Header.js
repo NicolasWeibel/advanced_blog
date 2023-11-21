@@ -116,6 +116,7 @@ function Header() {
               <img
                 src="https://bafybeicgamofiuvkc6wjxl4wwzzh6pdovhcvvyc2gw5verruiolnykzz3i.ipfs.w3s.link/bbub3.jpg"
                 className="w-full h-full object-cover"
+                alt=""
               />
             </div>
           </div>

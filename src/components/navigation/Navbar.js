@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { Popover, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
-import { useState, Fragment, useEffect } from "react";
+import { useState, Fragment } from "react";
 import { NavLink, Link } from "react-router-dom";
 import DotLoader from "react-spinners/DotLoader";
 
@@ -65,8 +64,6 @@ function Navbar() {
       }
     }
   }
-
-  const [open, setOpen] = useState(false);
 
   return (
     <nav

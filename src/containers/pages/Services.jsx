@@ -9,12 +9,12 @@ import { Helmet } from "react-helmet-async";
 
 const posts_software = [
   {
-    title: "Boost your conversion rate",
+    title: "Javascript Developers",
     img: coding_img,
-    href: "#",
-    category: { name: "Article", href: "#" },
+    href: "/services/javascript",
+    category: { name: "Development", href: "#" },
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.",
+      "Talented and agile javascript developers for your project, available 24/7.",
     date: "Mar 16, 2020",
     datetime: "2020-03-16",
     imageUrl:
@@ -174,13 +174,23 @@ function Services() {
       </Helmet>
       <Navbar />
       <div className="pt-28">
-        <Header />
-        <div className="py-12 bg-gray-50"></div>
-        <ServicesList
-          posts={posts_software}
-          section_title={"Software and Product Development"}
-        />
-        <ServicesList posts={posts_design} section_title={"Design Services"} />
+        <div className="mx-auto max-w-1700 px-4 sm:px-6 lg:px-8">
+          {/* We've used 3xl here, but feel free to try other max-widths based on your needs */}
+          <div className="mx-auto max-w-1700">
+            {/* Content goes here */}
+
+            <Header />
+            <div className="py-12"></div>
+            <ServicesList
+              posts={posts_software}
+              section_title={"Software and Product Development"}
+            />
+            <ServicesList
+              posts={posts_design}
+              section_title={"Design Services"}
+            />
+          </div>
+        </div>
       </div>
       <Footer />
     </Layout>

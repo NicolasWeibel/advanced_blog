@@ -1,31 +1,29 @@
-import { Typewriter } from 'react-simple-typewriter'
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
+
 const navigation = {
   solutions: [
-    { name: 'Marketing', href: '#' },
-    { name: 'Analytics', href: '#' },
-    { name: 'Commerce', href: '#' },
-    { name: 'Insights', href: '#' },
+    { name: "Marketing", href: "#" },
+    { name: "Analytics", href: "#" },
+    { name: "Commerce", href: "#" },
+    { name: "Insights", href: "#" },
   ],
-  support: [
-      { name: 'Contacto', href: '/contacto' },
-  ],
+  support: [{ name: "Contacto", href: "/contacto" }],
   company: [
-      { name: 'Casos', href: '/casos' },
-      { name: 'Servicios', href: '/servicios' },
-      { name: 'Nosotros', href: '/nosotros' },
-      { name: 'Carreras', href: '/carreras' },
-      { name: 'Blog', href: '/blog' },
+    { name: "Cases", href: "/cases" },
+    { name: "Services", href: "/services" },
+    { name: "About Us", href: "/about-us" },
+    { name: "Careers", href: "/careers" },
+    { name: "Blog", href: "/blog" },
   ],
   legal: [
-    { name: 'Claim', href: '#' },
-    { name: 'Privacy', href: '#' },
-    { name: 'Terms', href: '#' },
+    { name: "Claim", href: "#" },
+    { name: "Privacy", href: "#" },
+    { name: "Terms", href: "#" },
   ],
   social: [
     {
-      name: 'Facebook',
-      href: '#',
+      name: "Facebook",
+      href: "#",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -37,8 +35,8 @@ const navigation = {
       ),
     },
     {
-      name: 'Instagram',
-      href: '#',
+      name: "Instagram",
+      href: "#",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -50,8 +48,8 @@ const navigation = {
       ),
     },
     {
-      name: 'Twitter',
-      href: '#',
+      name: "Twitter",
+      href: "#",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
@@ -59,8 +57,8 @@ const navigation = {
       ),
     },
     {
-      name: 'GitHub',
-      href: '#',
+      name: "GitHub",
+      href: "#",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -72,8 +70,8 @@ const navigation = {
       ),
     },
     {
-      name: 'Dribbble',
-      href: '#',
+      name: "Dribbble",
+      href: "#",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -85,41 +83,47 @@ const navigation = {
       ),
     },
   ],
-}
-function Header(){
-
-    
-
-    return(
-        <main>
-        <div className="relative">
-          <div className="mx-auto max-w-full xl:mx-12 xl:pt-40 xl:pb-64 lg:pt-40 lg:pb-48 pt-24 pb-12  ">
+};
+function Header() {
+  return (
+    <main>
+      <div className="relative">
+        <div className="mx-auto max-w-full xl:mx-12 xl:pt-40 xl:pb-64 lg:pt-40 lg:pb-48 pt-24 pb-12  ">
+          <div>
             <div>
-              <div>
-                <h1 className="text-4xl font-semibold tracking-tight pb-16  sm:text-7xl">
-                  Case Studies
-                </h1>
-                <p className="mt-16 text-2xl max-w-3xl leading-8 text-black ">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt
-                  amet fugiat veniam occaecat fugiat aliqua.
-                </p>
-                <div className="absolute bottom-0 left-0 flex space-x-6 xl:mx-12 mx-0">
+              <h1 className="text-4xl font-semibold tracking-tight pb-16  sm:text-7xl">
+                Case Studies
+              </h1>
+              <p className="mt-16 text-2xl max-w-3xl leading-8 text-black ">
+                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
+                lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
+                fugiat aliqua.
+              </p>
+              <div className="absolute bottom-0 left-0 flex space-x-6 xl:mx-12 mx-0">
                 {navigation.social.map((item) => (
-                  <a key={item.name} href={item.href} className="text-gray-900 hover:text-gray-800">
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="text-gray-900 hover:text-gray-800"
+                  >
                     <span className="sr-only">{item.name}</span>
                     <item.icon className="h-8 w-8" aria-hidden="true" />
-                  </a>
+                  </Link>
                 ))}
-                </div>
               </div>
-              <div className="absolute inset-x-0 top-[calc(100%-20rem)] -z-10 transform-gpu overflow-hidden bg-white blur-lg lg:top-[calc(100%-45rem)] sm:top-[calc(100%-30rem)]">
-                <img src="https://bafybeicgamofiuvkc6wjxl4wwzzh6pdovhcvvyc2gw5verruiolnykzz3i.ipfs.w3s.link/bbub3.jpg" className='w-full h-full object-cover'/>
-              </div>
+            </div>
+            <div className="absolute inset-x-0 top-[calc(100%-20rem)] -z-10 transform-gpu overflow-hidden bg-white blur-lg lg:top-[calc(100%-45rem)] sm:top-[calc(100%-30rem)]">
+              <img
+                src="https://bafybeicgamofiuvkc6wjxl4wwzzh6pdovhcvvyc2gw5verruiolnykzz3i.ipfs.w3s.link/bbub3.jpg"
+                className="w-full h-full object-cover"
+                alt=""
+              />
             </div>
           </div>
         </div>
-      </main>
-    )
+      </div>
+    </main>
+  );
 }
 
-export default Header
+export default Header;

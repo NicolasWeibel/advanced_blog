@@ -5,11 +5,11 @@ function CasesList() {
   const posts = [
     {
       id: "1234-qwer",
-      title: "Boost your conversion rate",
-      href: "#",
-      category: { name: "Article", href: "#" },
+      title: "Boomslag.com",
+      href: "/cases/ecommerce",
+      category: { name: "Ecommerce" },
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.",
+        "Ecommerce website and application made with Django Rest Framework.",
       date: "Mar 16, 2020",
       datetime: "2020-03-16",
       imageUrl:
@@ -71,7 +71,7 @@ function CasesList() {
   ];
 
   return (
-    <div className="relative  px-4 pt-16 pb-20 sm:px-6 lg:px-8  lg:pb-28">
+    <div className="relative pt-20 pb-20 lg:pb-28">
       <div className="absolute inset-0">
         <div className="h-1/3 bg-white sm:h-2/3" />
       </div>

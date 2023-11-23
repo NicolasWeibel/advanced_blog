@@ -14,6 +14,7 @@ import Search from "containers/pages/Search";
 import PostDetail from "containers/pages/PostDetail";
 import OptIn from "containers/pages/OptIn";
 import OptInCTA from "containers/pages/OptInCTA";
+import Ecommerce from "containers/pages/cases/Ecommerce";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -27,6 +28,7 @@ function AnimatedRoutes() {
         {/* Home Display */}
         <Route path="/" element={<Home />} />
         <Route path="/cases" element={<Cases />} />
+        <Route path="/cases/ecommerce" element={<Ecommerce />} />
         <Route path="/services" element={<Services />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/careers" element={<Careers />} />

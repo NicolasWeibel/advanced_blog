@@ -12,6 +12,8 @@ import Contact from "containers/pages/Contact";
 import Category from "containers/pages/Category";
 import Search from "containers/pages/Search";
 import PostDetail from "containers/pages/PostDetail";
+import OptIn from "containers/pages/OptIn";
+import OptInCTA from "containers/pages/OptInCTA";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -33,6 +35,8 @@ function AnimatedRoutes() {
         <Route path="/search/:term" element={<Search />} />
         <Route path="/category/:slug" element={<Category />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/ebook" element={<OptIn />} />
+        <Route path="/ebook/training" element={<OptInCTA />} />
       </Routes>
     </AnimatePresence>
   );

@@ -26,7 +26,7 @@ export default function Incentives() {
   return (
     <div className="bg-white">
       <div className="mx-auto  py-24  sm:py-32">
-        <div className="mx-auto max-w-2xl xl:mx-12 lg:mx-8 lg:max-w-none">
+        <div className="mx-auto max-w-2xl px-4 lg:max-w-none">
           <div className="max-w-3xl">
             <h2 className="text-4xl font-bold tracking-tight text-gray-900">
               We built our business on customer service
@@ -39,7 +39,7 @@ export default function Incentives() {
               don't actually read it.
             </p>
           </div>
-          <div className="mt-16 grid grid-cols-1 gap-y-10 gap-x-10 lg:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 gap-y-10 gap-x-8 lg:grid-cols-3">
             {incentives.map((incentive) => (
               <div key={incentive.name} className="sm:flex lg:block">
                 <div className="sm:flex-shrink-0">

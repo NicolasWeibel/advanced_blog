@@ -14,18 +14,23 @@ function Home() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
   return (
     <Layout>
       <Navbar />
-      <div className="pt-28">
-        <Header />
-        <Incentives />
-        <UseCases />
-        <Features />
-        <CTA />
-        <LogoCloud />
-        <BlogList />
+      <div data-scroll-section className="pt-28">
+        <div className="mx-auto max-w-1700 px-4 sm:px-6 lg:px-8">
+          {/* We've used 3xl here, but feel free to try other max-widths based on your needs */}
+          <div className="mx-auto max-w-1700">
+            {/* Content goes here */}
+            <Header />
+            <Incentives />
+            <UseCases />
+            <Features />
+            <CTA />
+            <LogoCloud />
+            <BlogList />
+          </div>
+        </div>
       </div>
       <Footer />
     </Layout>

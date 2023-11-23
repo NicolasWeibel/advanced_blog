@@ -9,10 +9,10 @@ const navigation = {
   ],
   support: [{ name: "Contacto", href: "/contacto" }],
   company: [
-    { name: "Casos", href: "/casos" },
-    { name: "Servicios", href: "/servicios" },
-    { name: "Nosotros", href: "/nosotros" },
-    { name: "Carreras", href: "/carreras" },
+    { name: "Cases", href: "/cases" },
+    { name: "Services", href: "/services" },
+    { name: "About Us", href: "/about-us" },
+    { name: "Careers", href: "/careers" },
     { name: "Blog", href: "/blog" },
   ],
   legal: [
@@ -87,8 +87,8 @@ const navigation = {
 function Header() {
   return (
     <main>
-      <div className="relative px-6 lg:px-8">
-        <div className="mx-auto max-w-full xl:mx-12 xl:pt-40 xl:pb-64 lg:pt-40 lg:pb-48 pt-24 pb-12  ">
+      <div className="relative ">
+        <div className="mx-auto  xl:mx-12 xl:pt-48 xl:pb-64 lg:pt-40 lg:pb-48 pt-24 pb-12  ">
           <div>
             <div>
               <h1 className="text-4xl font-semibold tracking-tight pb-16  sm:text-7xl">
@@ -105,9 +105,7 @@ function Header() {
                   // onType={handleType}
                 />
               </h1>
-              <p className="mt-16 text-2xl max-w-3xl leading-8 text-black ">
-                Jumpstart today your business with one of our services that
-                range from{" "}
+              <p className="mt-16 lg:text-2xl text-lg max-w-3xl leading-8 text-black ">
                 <span className="lg:text-xl text-md font-medium leading-8 text-gray-700 sm:text-center  transition duration-300 ease-in-out border-b-2 border-transparent hover:border-orange-button">
                   <Link to="/">Web Development</Link>
                 </span>
@@ -121,7 +119,7 @@ function Header() {
                   <Link to="/"> Digital Marketing</Link>
                 </span>
               </p>
-              <div className="absolute bottom-0 left-0 flex space-x-6 xl:mx-20 mx-6">
+              <div className="absolute bottom-0 left-0 flex space-x-6 xl:mx-12 mx-0">
                 {navigation.social.map((item) => (
                   <a
                     key={item.name}

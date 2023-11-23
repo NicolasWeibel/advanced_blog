@@ -1,10 +1,11 @@
 const posts = [
   {
-    title: "Boost your conversion rate",
-    href: "#",
-    category: { name: "Article", href: "#" },
+    id: "1234-qwer",
+    title: "Boomslag.com",
+    href: "/cases/ecommerce",
+    category: { name: "Ecommerce" },
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.",
+      "Ecommerce website and application made with Django Rest Framework.",
     date: "Mar 16, 2020",
     datetime: "2020-03-16",
     imageUrl:
@@ -18,6 +19,7 @@ const posts = [
     },
   },
   {
+    id: "5678-asdf",
     title: "How to use search engine optimization to drive sales",
     href: "#",
     category: { name: "Video", href: "#" },
@@ -36,6 +38,7 @@ const posts = [
     },
   },
   {
+    id: "4321-zxcv",
     title: "Improve your customer experience",
     href: "#",
     category: { name: "Case Study", href: "#" },
@@ -57,7 +60,7 @@ const posts = [
 
 export default function UseCases() {
   return (
-    <div className="relative bg-gray-50 px-4 pt-16 pb-20 sm:px-6 lg:px-8 lg:pt-24 lg:pb-28">
+    <div className="relative bg-gray-50 pt-16 pb-20  lg:pt-24 lg:pb-28">
       <div className="absolute inset-0">
         <div className="h-1/3 bg-white sm:h-2/3" />
       </div>
@@ -95,30 +98,6 @@ export default function UseCases() {
                       {post.description}
                     </p>
                   </a>
-                </div>
-                <div className="mt-6 flex items-center">
-                  <div className="flex-shrink-0">
-                    <a href={post.author.href}>
-                      <span className="sr-only">{post.author.name}</span>
-                      <img
-                        className="h-10 w-10 rounded-full"
-                        src={post.author.imageUrl}
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-gray-900">
-                      <a href={post.author.href} className="hover:underline">
-                        {post.author.name}
-                      </a>
-                    </p>
-                    <div className="flex space-x-1 text-sm text-gray-500">
-                      <time dateTime={post.datetime}>{post.date}</time>
-                      <span aria-hidden="true">&middot;</span>
-                      <span>{post.readingTime} read</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function CTA() {
   return (
     <div className="bg-gray-50">
-      <div className="mx-auto max-w-full py-12  lg:flex lg:items-center lg:justify-between lg:py-16 ">
+      <div className="mx-auto max-w-full py-12 xl:mx-12 lg:mx-8 lg:flex lg:items-center lg:justify-between lg:py-16 ">
         <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
           <span className="block">Ready to dive in?</span>
           <span className="block text-orange-button">

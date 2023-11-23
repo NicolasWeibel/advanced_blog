@@ -26,7 +26,7 @@ export default function Incentives() {
   return (
     <div className="bg-white">
       <div className="mx-auto  py-24  sm:py-32">
-        <div className="mx-auto max-w-2xl px-4 lg:max-w-none">
+        <div className="mx-auto max-w-2xl xl:mx-12 lg:mx-8 lg:max-w-none">
           <div className="max-w-3xl">
             <h2 className="text-4xl font-bold tracking-tight text-gray-900">
               We built our business on customer service

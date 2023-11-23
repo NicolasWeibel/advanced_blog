@@ -87,8 +87,8 @@ const navigation = {
 function Header() {
   return (
     <main>
-      <div className="relative xl:mx-12 lg:mx-6 sm:mx-4">
-        <div className="mx-auto  xl:mx-12 xl:pt-48 xl:pb-64 lg:pt-40 lg:pb-48 pt-24 pb-12  ">
+      <div className="relative xl:mx-12 lg:mx-8 sm:mx-4">
+        <div className="mx-auto xl:mx-12 xl:pt-48 xl:pb-64 lg:pt-40 lg:pb-48 pt-24 pb-12">
           <div>
             <div>
               <h1 className="text-4xl font-semibold tracking-tight pb-16  sm:text-7xl">
